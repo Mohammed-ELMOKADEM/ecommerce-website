@@ -1,0 +1,91 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<header class="header header-intro-clearance header-3">
+            <div class="header-top">
+                <div class="container">
+                    <div class="header-left">
+                        <a href="tel:#"><i class="icon-phone"></i>Call: +0123 456 789</a>
+                    </div><!-- End .header-left -->
+
+                    <div class="header-right">
+
+                        <ul class="top-menu">
+                            <li>
+                                <a href="#">Links</a>
+                                <ul>                             
+                                	<c:if test="${empty sessionScope.id}"><li><a href="#signin-modal" data-toggle="modal">Se connecter / S'inscrire</a></li></c:if>                     
+                                	<c:if test="${!empty sessionScope.id}"><li><a href="Home?logout=1">Se deconnecter</a></li></c:if>                             
+                                </ul>
+                            </li>
+                        </ul><!-- End .top-menu -->
+                    </div><!-- End .header-right -->
+
+                </div><!-- End .container -->
+            </div><!-- End .header-top -->
+
+            <div class="header-middle">
+                <div class="container">
+                    <div class="header-left">
+                        <button class="mobile-menu-toggler">
+                            <span class="sr-only">Toggle mobile menu</span>
+                            <i class="icon-bars"></i>
+                        </button>
+                        
+                        <a href="Home" class="logo">
+                            <img src="./images/LogoMakr-81NofL.png" alt="Molla Logo" width="105" height="25">
+                        </a>
+                    </div><!-- End .header-left -->
+
+                    <div class="header-right">
+                    <c:if test="${!empty sessionScope.id}">
+                        <div class="dropdown cart-dropdown">
+                            <a href="Cart" class="dropdown-toggle" role="button">
+                                <div class="icon">
+                                    <i class="icon-shopping-cart"></i>
+                                    <span class="cart-count">${ sessionScope.cart }</span>
+                                </div>
+                                <p>Cart</p>
+                            </a>
+                        </div><!-- End .cart-dropdown -->
+                    </c:if>
+                    </div><!-- End .header-right -->
+                </div><!-- End .container -->
+            </div><!-- End .header-middle -->
+
+            <div class="header-bottom sticky-header">
+                <div class="container">
+             
+                    <div class="header-center">
+                        <nav class="main-nav">
+                            <ul class="menu">
+                                <li class="megamenu-container active">
+                                    <a href="Home" class="linkss" >Accueil</a>
+                                </li>
+                                <li>
+                                    <a href="Categories" class="linkss" >Categories</a>                    
+                                </li>
+                                <li>
+                                    <a href="Contactez" class="linkss">Contactez-nous</a>                    
+                                </li>
+                                <li>
+                                    <a href="About" class="linkss">Qui sommes-nous?</a>                    
+                                </li>
+                            </ul><!-- End .menu -->
+                        </nav><!-- End .main-nav -->
+                    </div><!-- End .header-center -->
+                   <c:if test="${!empty session && id=='admin@gmail.com'}">
+	                    <div class="header-right">
+	                        <nav class="main-nav">
+	                            <ul class="menu">
+	                                <li class="megamenu-container">
+	                                    <a href="Dashboard" class="">Dashboard</a>
+	                                </li>
+	                            </ul><!-- End .menu -->
+	                        </nav><!-- End .main-nav -->
+	                    </div><!-- End .header-right -->
+                    </c:if>
+                </div><!-- End .container -->
+            </div><!-- End .header-bottom -->
+        </header><!-- End .header -->
